@@ -1,0 +1,51 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ExampleMVVM.DesktopClient.Views.MainView"
+        Title="{Binding Path=DisplayName}"
+        Width="960"
+        Height="576"
+        WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <ResourceDictionary Source="../Resources/MainViewResources.xaml"/>
+    </Window.Resources>
+    
+    <DockPanel>
+
+        <DockPanel DockPanel.Dock="Top"
+                   KeyboardNavigation.TabNavigation="None">
+            <Menu KeyboardNavigation.ControlTabNavigation="Cycle">
+                <MenuItem Header="_File">
+                    <MenuItem Header="E_xit" Command="{Binding CloseCommand}"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Control Panel -->
+            <Border Grid.Column="0">
+                
+            </Border>
+
+            <GridSplitter Grid.Column="1"
+                          VerticalAlignment="Stretch"
+                          HorizontalAlignment="Center"
+                          Width="4"/>
+
+            <!-- Workspaces -->
+            <Border Grid.Column="2">
+
+            </Border>
+
+        </Grid>
+        
+    </DockPanel>
+    
+</Window>
